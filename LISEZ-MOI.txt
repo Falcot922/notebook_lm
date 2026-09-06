@@ -1,0 +1,104 @@
+NOTES AU PROPRE
+===============
+
+POUR OUVRIR
+-----------
+Double-cliquez sur « Notes au propre.html ». L'application s'ouvre
+dans le navigateur. Rien à installer.
+
+Si rien ne se passe : clic droit sur le fichier > Ouvrir avec > Chrome
+(ou Firefox, ou Edge).
+
+Un raccourci pratique : une fois l'application ouverte, mettez-la en
+favori. Le lien fonctionnera tant que le dossier reste au même endroit.
+
+
+LA CLÉ API
+----------
+L'application a besoin d'une clé pour parler au modèle. Deux options :
+
+  1. Ouvrez « cle-api.js » avec un éditeur de texte (Bloc-notes,
+     TextEdit) et collez la clé entre les guillemets. Elle ne sera
+     plus jamais demandée.
+
+  2. Ou laissez le fichier vide : l'application demandera la clé au
+     premier lancement et la retiendra sur cet ordinateur.
+
+La clé se crée sur console.anthropic.com, rubrique « API keys ».
+La facturation se fait à l'usage, séparément d'un abonnement Claude.
+
+
+COMMENT ÇA MARCHE
+-----------------
+Une cellule = un passage de notes. À gauche le brouillon, à droite la
+version propre.
+
+  - Collez tout un cours dans une cellule, puis « Découper » : chaque
+    partie part dans sa propre cellule.
+  - Ou glissez un fichier .txt, .md ou .docx sur la fenêtre.
+  - « Mettre au propre » traite tout ce qui reste à faire.
+  - Maj + Entrée traite une cellule et passe à la suivante.
+
+Trois niveaux d'intervention :
+  Minimal   orthographe et ponctuation seulement, la forme est gardée
+  Standard  phrases reconstituées, listes conservées
+  Rédigé    texte suivi, listes transformées en phrases
+
+Le bouton « Comparer » superpose l'avant et l'après mot à mot :
+en vert ce qui a été ajouté, en rouge ce qui a été retiré. Les ajouts
+doivent être des mots de liaison et des abréviations développées.
+Jamais une idée.
+
+L'onglet « Document » assemble toutes les cellules en un texte continu,
+à imprimer, exporter en Word (.doc) ou en Markdown.
+
+Le travail est enregistré automatiquement dans le navigateur. L'icône
+en haut à gauche donne accès aux documents précédents.
+
+
+SURVEILLER LA DEPENSE
+---------------------
+La jauge en haut a droite affiche ce qui a ete depense ce mois-ci et le
+plafond en cours. Elle compte les tokens reellement factures, renvoyes
+par l'API a chaque appel, aux tarifs Haiku (1 $ le million en entree,
+5 $ le million en sortie).
+
+Cliquez dessus pour changer le plafond. Une fois atteint, l'application
+refuse de lancer de nouveaux traitements jusqu'au mois suivant.
+
+Au-dela de 80 cellules, un lot demande confirmation en affichant le
+cout et la duree estimes. C'est la pour eviter de lancer un semestre
+entier par megarde.
+
+IMPORTANT : ce compteur vit dans le navigateur. Il protege des
+accidents, pas des contournements — vider les donnees du site le remet
+a zero. Le vrai verrou se regle sur platform.claude.com, section
+Billing > Spend limits : le plafond y est applique cote serveur et rien
+ne peut le contourner. Encore mieux, creez un workspace dedie, generez
+la cle dedans et fixez-lui ses propres limites : l'usage de votre soeur
+sera alors totalement isole du reste du compte.
+
+
+LE DOCUMENT ET LES CELLULES
+---------------------------
+Une version propre reste dans l'onglet Document tant que sa cellule
+existe. Modifier les notes de gauche ne la fait pas disparaitre : la
+mention « retouchee depuis sa mise au propre » signale simplement que
+les deux ne correspondent plus. Pour retirer un paragraphe du document,
+supprimez la cellule.
+
+CE QUE L'APPLICATION NE FAIT PAS
+--------------------------------
+Elle n'ajoute rien au fond du cours, ne résume pas, ne réorganise pas,
+et ne corrige jamais une référence (article, date, arrêt) : elle la
+recopie telle qu'elle est écrite dans les notes.
+
+
+SI UN MESSAGE D'ERREUR APPARAÎT
+-------------------------------
+« Clé API refusée »        la clé est absente ou invalide
+« Crédit épuisé »          recharger le compte sur console.anthropic.com
+« Pas de connexion »       vérifier internet ; sinon, lancer le fichier
+                           « Ouvrir (Mac).command » ou
+                           « Ouvrir (Windows).bat », qui ouvre
+                           l'application via un petit serveur local
